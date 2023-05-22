@@ -1,10 +1,14 @@
 <h2>Create Recipe</h2>
-<div>
-  <label for="recipe-name">Recipe Name:</label>
-  <input type="text" id="recipe-name" [(ngModel)]="recipeName" />
+<div class="card">
+  <div class="form-group">
+    <label for="recipe-name">Recipe Name:</label>
+    <input type="text" id="recipe-name" [(ngModel)]="recipeName" class="text-input" />
+  </div>
 
-  <label for="recipe-instructions">Instructions:</label>
-  <textarea id="recipe-instructions" [(ngModel)]="recipeInstructions"></textarea>
+  <div class="form-group">
+    <label for="recipe-instructions">Instructions:</label>
+    <textarea id="recipe-instructions" [(ngModel)]="recipeInstructions" class="text-input"></textarea>
+  </div>
 
-  <button (click)="createRecipe()">Create Recipe</button>
+  <button class="button" (click)="createRecipe()">Create Recipe</button>
 </div>

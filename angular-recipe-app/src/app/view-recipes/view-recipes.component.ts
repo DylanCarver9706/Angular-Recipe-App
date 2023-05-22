@@ -15,7 +15,10 @@ export class ViewRecipesComponent implements OnInit {
     this.recipes = this.recipeService.getRecipes();
   }
 
-  addComment(recipe: any, comment: string): void {
-    recipe.comments.push(comment);
+  addComment(recipe: any): void {
+    if (recipe.newComment) {
+      recipe.comments.push(recipe.newComment);
+      recipe.newComment = ''; // Clear the input field after adding the comment
+    }
   }
 }

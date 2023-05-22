@@ -1,15 +1,13 @@
 <h2>View Recipes</h2>
-<div *ngFor="let recipe of recipes">
-  <h3>{{ recipe.name }}</h3>
-  <p>{{ recipe.instructions }}</p>
-
-  <div>
-    <input type="text" #commentInput placeholder="Add a comment" />
-    <button (click)="addComment(recipe, commentInput.value)">Add Comment</button>
+<div class="card" *ngFor="let recipe of recipes">
+  <h3 class="recipe-name">{{ recipe.name }}</h3>
+  <p class="recipe-instructions">{{ recipe.instructions }}</p>
+  <div class="comment-input">
+    <input type="text" [(ngModel)]="recipe.newComment" placeholder="Add a comment" class="text-input">
+    <button class="button" (click)="addComment(recipe)">Add Comment</button>
   </div>
-
-  <h4>Comments:</h4>
-  <ul>
-    <li *ngFor="let comment of recipe.comments">{{ comment }}</li>
-  </ul>
+  <p class="recipe-comments" *ngIf="recipe.comments.length > 0">
+    Comments:
+    <span *ngFor="let comment of recipe.comments" class="comment">{{ comment }}</span>
+  </p>
 </div>

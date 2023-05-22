@@ -1,6 +1,12 @@
-<h1>Recipe App</h1>
-<nav>
-  <a routerLink="/create-recipe" routerLinkActive="active">Create Recipe</a>
-  <a routerLink="/view-recipes" routerLinkActive="active">View Recipes</a>
+<nav class="navbar">
+  <div class="container">
+    <h1 class="app-title">Carver's Culinary Creations</h1>
+    <ul class="nav-links">
+      <li><a routerLink="/create-recipe" routerLinkActive="active" class="nav-link">Create Recipe</a></li>
+      <li><a routerLink="/view-recipes" routerLinkActive="active" class="nav-link">View Recipes</a></li>
+    </ul>
+  </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
