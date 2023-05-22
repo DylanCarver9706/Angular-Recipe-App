@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-view-recipes',
@@ -9,21 +9,10 @@ import { HttpClient } from '@angular/common/http';
 export class ViewRecipesComponent implements OnInit {
   recipes: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
-    this.fetchRecipes();
-  }
-
-  fetchRecipes(): void {
-    this.http.get<any[]>('/api/recipes').subscribe(
-      (recipes) => {
-        this.recipes = recipes;
-      },
-      (error) => {
-        console.log('Error fetching recipes:', error);
-      }
-    );
+    this.recipes = this.recipeService.getRecipes();
   }
 
   addComment(recipe: any, comment: string): void {

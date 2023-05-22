@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-create-recipe',
@@ -8,7 +9,8 @@ import { Component } from '@angular/core';
 export class CreateRecipeComponent {
   recipeName: string = '';
   recipeInstructions: string = '';
-  recipes: any[] = [];
+
+  constructor(private recipeService: RecipeService) {}
 
   createRecipe(): void {
     const recipe = {
@@ -17,7 +19,8 @@ export class CreateRecipeComponent {
       comments: []
     };
 
-    this.recipes.push(recipe);
+    this.recipeService.addRecipe(recipe);
+
     this.recipeName = '';
     this.recipeInstructions = '';
   }
