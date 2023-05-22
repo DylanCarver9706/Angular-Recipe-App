@@ -1,0 +1,10 @@
+<h2>Create Recipe</h2>
+<div>
+  <label for="recipe-name">Recipe Name:</label>
+  <input type="text" id="recipe-name" [(ngModel)]="recipeName" />
+
+  <label for="recipe-instructions">Instructions:</label>
+  <textarea id="recipe-instructions" [(ngModel)]="recipeInstructions"></textarea>
+
+  <button (click)="createRecipe()">Create Recipe</button>
+</div>

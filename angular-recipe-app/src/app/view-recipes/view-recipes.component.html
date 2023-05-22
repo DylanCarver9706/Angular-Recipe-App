@@ -1,0 +1,15 @@
+<h2>View Recipes</h2>
+<div *ngFor="let recipe of recipes">
+  <h3>{{ recipe.name }}</h3>
+  <p>{{ recipe.instructions }}</p>
+
+  <div>
+    <input type="text" #commentInput placeholder="Add a comment" />
+    <button (click)="addComment(recipe, commentInput.value)">Add Comment</button>
+  </div>
+
+  <h4>Comments:</h4>
+  <ul>
+    <li *ngFor="let comment of recipe.comments">{{ comment }}</li>
+  </ul>
+</div>
